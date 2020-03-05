@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="NOMBRE"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Introduce tu nombre" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="MODE"
+        android:title="Dark mode" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="ACTIVADO"
+        android:title="Color amarillo" />
+
+    <PreferenceScreen
+        android:title="Holis"
+        >
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Edit text preference" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="switch_preference_1"
+            android:title="Switch preference" />
+    </PreferenceScreen>
+
+</PreferenceScreen>
