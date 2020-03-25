@@ -17,6 +17,7 @@ import android.widget.Toast;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -47,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.editText);
         leer = findViewById(R.id.buttonread);
         guardar = findViewById(R.id.buttonsave);
-        sRutaSD = Environment.getExternalStorageDirectory().getAbsolutePath();//Obtener la ruta externa
+        //sRutaSD = Environment.getExternalStorageDirectory().getAbsolutePath();//Obtener la ruta externa
+
+        sRutaSD = getExternalFilesDir(null).getPath();//Para crear una carpeta en Android/data y guardarlo ahí
         Toast.makeText(this,sRutaSD,Toast.LENGTH_SHORT).show();
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             //Arreglo de permisos porque pueden ser varios permisos
@@ -60,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             //InputStream is = openFileInput(archivo); //para memoria interna
             //Para tarjeta memoria
-            FileInputStream fis = new FileInputStream(sRutaSD +"/"+ archivo);
+            //FileInputStream fis = new FileInputStream(sRutaSD +"/"+ archivo);
+
+            File file = new File(getExternalFilesDir(null),archivo);
+            FileInputStream fis = new FileInputStream(file);
+
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             String sCade;
@@ -82,8 +89,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             //OutputStream os = openFileOutput(archivo, 0); //Para memeoria interna
             //para SD
-            FileOutputStream fos = new FileOutputStream(sRutaSD+"/"+archivo);
-            Toast.makeText(this,sRutaSD+"/"+archivo,Toast.LENGTH_SHORT).show();
+            //FileOutputStream fos = new FileOutputStream(sRutaSD+"/"+archivo);
+            File file = new File(getExternalFilesDir(null),archivo);
+            FileOutputStream fos = new FileOutputStream(file);
             OutputStreamWriter osw = new OutputStreamWriter(fos);
             BufferedWriter bw = new BufferedWriter(osw);
             try{

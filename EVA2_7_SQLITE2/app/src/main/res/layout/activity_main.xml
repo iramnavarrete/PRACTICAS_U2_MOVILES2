@@ -7,25 +7,32 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
-        android:layout_height="278dp"
+        android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:text="@string/nombre" />
 
-    <Button
-        android:id="@+id/buttonread"
+    <EditText
+        android:id="@+id/editTextTel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onRead"
-        android:text="Leer" />
+        android:ems="10"
+        android:inputType="phone"
+        tools:text="Telefono" />
 
     <Button
-        android:id="@+id/buttonsave"
+        android:id="@+id/buttonIngresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onSave"
-        android:text="Guardar" />
+        android:text="@string/ingresar_datos" />
 
+    <Button
+        android:id="@+id/buttonConsulta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/consultar_datos" />
 </LinearLayout>
