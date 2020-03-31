@@ -1,7 +1,8 @@
-package com.example.eva2_7_sqlite2;
+package com.example.eva2_8_sqlite3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -15,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText txtNombre, txtTelefono;
-    Button btnIngresa, btnConsulta;
-    String sRutaSD;
+    Button btnIngresa, btnConsulta, btnElimina;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +26,10 @@ public class MainActivity extends AppCompatActivity {
         txtTelefono = findViewById(R.id.editTextTel);
         btnIngresa = findViewById(R.id.buttonIngresa);
         btnConsulta = findViewById(R.id.buttonConsulta);
-
-        sRutaSD = getExternalFilesDir(null).getPath();//Para crear una carpeta en Android/data y guardarlo ahí
+        btnElimina = findViewById(R.id.buttonElimina);
 
         final SQLiteDatabase db = this.openOrCreateDatabase(
-                sRutaSD+"/myfriendsDB-db",
+                "myfriendsDB-db",
                 MODE_PRIVATE,
                 null);
         db.beginTransaction();
@@ -57,9 +56,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 db.beginTransaction();
                 try {
-                    db.execSQL( "insert into tblAMIGO(name, phone) values ('"+txtNombre.getText().toString()+"', '"+txtTelefono.getText().toString()+"');" );
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("name",txtNombre.getText().toString());
+                    contentValues.put("phone",txtTelefono.getText().toString());
+                    db.insert("tblAMIGO", null, contentValues);
                     db.setTransactionSuccessful(); //commit your changes
                     Toast.makeText(getApplicationContext(),"Se pudieron agregar los datos",Toast.LENGTH_SHORT).show();
+                    txtNombre.setText("");
+                    txtTelefono.setText("");
                 }
                 catch (SQLiteException e) {
                     //report problem
@@ -76,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Consulta.class);
+                intent.putExtra("action", "edit");
+                startActivity(intent);
+            }
+        });
+
+        btnElimina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Consulta.class);
+                intent.putExtra("action","delete");
                 startActivity(intent);
             }
         });

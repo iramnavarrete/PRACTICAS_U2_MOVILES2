@@ -13,26 +13,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/nombre" />
+        android:hint="Nombre"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editTextTel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="phone"
-        tools:text="Telefono" />
+        android:hint="Teléfono"
+        android:inputType="phone" />
 
     <Button
         android:id="@+id/buttonIngresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ingresar_datos" />
+        android:text="Ingresar datos" />
 
     <Button
         android:id="@+id/buttonConsulta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar datos" />
+        android:text="Consultar o editar datos" />
+
+    <Button
+        android:id="@+id/buttonElimina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eliminar registro" />
 </LinearLayout>

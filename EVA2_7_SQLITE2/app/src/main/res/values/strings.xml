@@ -3,4 +3,5 @@
     <string name="consultar_datos">Consultar datos</string>
     <string name="ingresar_datos">Ingresar datos</string>
     <string name="nombre">Nombre</string>
+    <string name="actualizar_datos">Actualizar datos</string>
 </resources>

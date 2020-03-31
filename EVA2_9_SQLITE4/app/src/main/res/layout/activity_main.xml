@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/nombre" />
+        android:text="Nombre" />
 
     <EditText
         android:id="@+id/editTextTel"
@@ -28,7 +28,7 @@
         android:id="@+id/buttonIngresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ingresar_datos" />
+        android:text="Ingresar datos" />
 
     <Button
         android:id="@+id/buttonConsulta"

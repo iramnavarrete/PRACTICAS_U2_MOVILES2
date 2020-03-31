@@ -1,6 +1,4 @@
-package com.example.eva2_7_sqlite2;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.eva2_9_sqlite4;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
         btnIngresa = findViewById(R.id.buttonIngresa);
         btnConsulta = findViewById(R.id.buttonConsulta);
 
-        sRutaSD = getExternalFilesDir(null).getPath();//Para crear una carpeta en Android/data y guardarlo ahí
 
+
+        sRutaSD = getExternalFilesDir(null).getPath();//Para crear una carpeta en Android/data y guardarlo ahí
+        Toast.makeText(this,sRutaSD+"/myfriendsDB-db",Toast.LENGTH_SHORT).show();
         final SQLiteDatabase db = this.openOrCreateDatabase(
                 sRutaSD+"/myfriendsDB-db",
                 MODE_PRIVATE,
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (SQLiteException e) {
             //report problem
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
         }
         finally {
             db.endTransaction();

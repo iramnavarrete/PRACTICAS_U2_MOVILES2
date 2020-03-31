@@ -5,19 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".Actualiza">
 
     <EditText
-        android:id="@+id/editTextNombre"
+        android:id="@+id/editTextNombreA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/nombre" />
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextTel"
+        android:id="@+id/editTextTelA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -25,14 +23,9 @@
         tools:text="Telefono" />
 
     <Button
-        android:id="@+id/buttonIngresa"
+        android:id="@+id/buttonActualiza"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ingresar_datos" />
+        android:text="Guardar cambios" />
 
-    <Button
-        android:id="@+id/buttonConsulta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consultar datos" />
 </LinearLayout>

@@ -1,14 +1,12 @@
-package com.example.eva2_7_sqlite2;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.eva2_9_sqlite4;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -19,6 +17,7 @@ public class Consulta extends AppCompatActivity {
     ArrayAdapter adaptador;
 
     String sRutaSD;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
